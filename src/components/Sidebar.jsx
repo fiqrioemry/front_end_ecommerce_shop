@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { Link } from "react-router-dom";
 
 // import icons
@@ -13,14 +12,13 @@ import CartItem from "./CartItem";
 import { SidebarContext } from "../contexts/SidebarContext";
 
 // import cart context
-
 import { CartContext } from "../contexts/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-
   const { cart } = useContext(CartContext);
 
+  console.log(cart);
   return (
     <div
       className={`${
