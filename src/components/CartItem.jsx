@@ -39,7 +39,10 @@ const CartItem = ({ item }) => {
             {/* quantity */}
             <div className="flex flex-1 max-w-[100px] items-center h-full border text-primary font-meidum">
               {/* remove icon */}
-              <div className="flex-1" onClick={() => decreaseAmount(id)}>
+              <div
+                className="flex-1 flex justify-center items-center cursor-pointer h-full"
+                onClick={() => decreaseAmount(id)}
+              >
                 <IoMdRemove />
               </div>
               {/* amount */}
