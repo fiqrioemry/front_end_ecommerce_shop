@@ -23,26 +23,29 @@ const ProductDetails = () => {
 
   const { title, price, description, image } = product;
   return (
-    <section className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
+    <section className="pt-32 pb-12  lg:py-32 min-h-screen lg:h-screen flex items-center ">
       <div className="container mx-auto">
-        <div>
+        {/* wrapper */}
+        <div className="flex flex-col lg:flex-row items-center">
           {/* image */}
           <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
-            <img className="max-w-[200px] lg:max-w-sm" src={image} alt="" />
+            <img
+              className=" max-w-[150px] lg:max-w-[300px]"
+              src={image}
+              alt=""
+            />
           </div>
 
           {/* text */}
-          <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-[26px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0">
+          <div className="flex-1 text-left">
+            <h1 className="text-[26px] font-medium  mx-auto lg:mx-0">
               {title}
             </h1>
-            <div className="text-xl text-red-500 font-medium mb-6">
-              $ {price}
-            </div>
-            <p className="mb-8">{description}</p>
+            <div className="text-xl text-red-500 font-bold mb-6">$ {price}</div>
+            <p className="mb-8 text-justify">{description}</p>
             <button
-              onClick={() => addToCart(id)}
-              className="bg-primary py-4 px-8 text-white"
+              onClick={() => addToCart(product, product.id)}
+              className="bg-primary w-full lg:w-auto py-4 px-8 text-white"
             >
               Add to Cart
             </button>

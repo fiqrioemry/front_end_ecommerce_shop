@@ -16,7 +16,7 @@ import { CartContext } from "../contexts/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, clearCart, total } = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 
   console.log(cart);
   return (
@@ -27,22 +27,27 @@ const Sidebar = () => {
     >
       {/* head of cart item */}
       <div className="flex items-center justify-between py-6 border-b">
-        <div className="uppercase text-sm font-semibold">Shopping Bag (0)</div>
+        <div className="uppercase text-sm font-semibold">
+          Shopping Bag ({itemAmount})
+        </div>
 
         {/* icon */}
         <div
           onClick={handleClose}
-          className="'cursor-pointer w-8 h-8 flex justify-center items-center"
+          className="cursor-pointer w-8 h-8 flex justify-center items-center"
         >
           <IoMdArrowForward className="text-2xl" />
         </div>
       </div>
+
       {/* showing item in cart */}
-      <div className="flex flex-col gap-y-2 h-[520px] lg:[540px] overflow-y-auto overflow-x-hidden border-b ">
+      <div className="flex flex-col gap-y-2 h-[300px] overflow-y-auto overflow-x-hidden border-b ">
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
+
+      {/* total and checkout button */}
       <div className="flex flex-col gap-y-3 py-4 mt-4 ">
         <div className="flex w-full justify-between items-center">
           {/* total */}
@@ -67,9 +72,8 @@ const Sidebar = () => {
         </Link>
         <Link
           to={"/"}
-          className="bg-primary flex p-4 justify-center items-center text-primary w-full font-medium"
+          className="bg-primary flex p-4 justify-center items-center text-white w-full font-medium"
         >
-          {" "}
           Checkout
         </Link>
       </div>
