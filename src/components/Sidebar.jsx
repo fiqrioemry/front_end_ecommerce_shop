@@ -38,7 +38,7 @@ const Sidebar = () => {
         </div>
       </div>
       {/* showing item in cart */}
-      <div className="flex flex-col gap-y-2 h-[520px] lg:[540px] overflow-y-auto overflow-x-hidden border-b bg-red-500">
+      <div className="flex flex-col gap-y-2 h-[520px] lg:[540px] overflow-y-auto overflow-x-hidden border-b ">
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
@@ -46,7 +46,7 @@ const Sidebar = () => {
       <div className="flex flex-col gap-y-3 py-4 mt-4 ">
         <div className="flex w-full justify-between items-center">
           {/* total */}
-          <div className="uppercase font-semibold bg-red-500">
+          <div className="uppercase font-semibold ">
             <span className="mr-2">Total : </span> $
             {parseFloat(total).toFixed(2)}
           </div>
@@ -59,6 +59,19 @@ const Sidebar = () => {
             <FiTrash />
           </div>
         </div>
+        <Link
+          to={"/"}
+          className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium"
+        >
+          View Cart
+        </Link>
+        <Link
+          to={"/"}
+          className="bg-primary flex p-4 justify-center items-center text-primary w-full font-medium"
+        >
+          {" "}
+          Checkout
+        </Link>
       </div>
     </div>
   );
